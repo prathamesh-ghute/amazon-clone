@@ -1,8 +1,8 @@
 
 // use rfce to create basic component -shortcut
 import React from 'react';
-import './Header.css'
-import SearchIcon from '@mui/icons-material/Search';
+import './Header.css';
+import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {Link} from "react-router-dom";
 import { useStateValue } from './StateProvider';
