@@ -1,3 +1,6 @@
+body{
+    background-color: rgb(248, 247, 245);
+}
 
 .checkout{
     display: flex;
