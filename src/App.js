@@ -7,15 +7,20 @@ import Checkout from './Checkout';
 import Login from './Login';
 import { auth } from './firebase';
 import { useStateValue } from './StateProvider';
+import Payment from './Payment';
+import {loadStripe} from '@stripe/stripe-js';
+import {Elements} from '@stripe/react-stripe-js';
 
 
-
+const stripePromise  = loadStripe(
+  'pk_test_51R7E15QF4TlLJlJOXgQyrp9n3XDDCeV46GtUAkW9aZKiiWRDyOKR7URsLujfFBUZ0zZ4X0vNzvbN8HxEqhRgqu6S00G02fth00'
+);
 
 function App() {
   const [,dispatch] = useStateValue();
     
     useEffect(() =>{
-
+        // will only run once when the app component loads...
         auth.onAuthStateChanged(authuser =>{
           // console.log("the user is >>>",authuser);
 
@@ -56,6 +61,17 @@ function App() {
               <>
               <Header />
               <Checkout />
+              </>}
+              />
+          <Route path="/payment" 
+              element={
+              <>
+                 <Header />
+                 <Elements stripe={stripePromise}>
+                  <Payment />
+                </Elements>
+                
+                 {/* <h1> I am checkout page</h1> */}
               </>}
               />
           <Route path="/" 
