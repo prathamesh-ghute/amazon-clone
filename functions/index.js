@@ -38,7 +38,7 @@ app.use(cors({origin: true}));
 app.use(express.json());
 
 // API routes
-app.get('/' , (request, response) => response.status(200).send('hello world'));
+app.get('/' , (request, response) => response.status(200).send('hello Prathamesh'));
 
 app.post('/payment/create', async (request , response) =>{
     const total = request.query.total;
@@ -46,7 +46,7 @@ app.post('/payment/create', async (request , response) =>{
     // here we are creating a payment total and print it
     console.log('Payment Request Recieved BOOM!!! for this amount >>>',total);
     const paymentIntent = await stripe.paymentIntents.create({
-        amount: total, // sununit of the currency
+        amount: Math.round(total * 100), // sununit of the currency
         currency: 'usd',
         });
 

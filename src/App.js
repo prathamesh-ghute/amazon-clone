@@ -54,8 +54,10 @@ function App() {
         <Route path="/orders" 
               element={
               <>
-                   <Header />
-                  <Orders />
+                  <Header />
+                  <h1>Your Orders :</h1>
+                  <hr/>
+                  {/* <Orders /> */}
               </>}
               />
 
