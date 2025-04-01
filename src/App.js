@@ -57,7 +57,7 @@ function App() {
                   <Header />
                   <h1>Your Orders :</h1>
                   <hr/>
-                  {/* <Orders /> */}
+                      <Orders />
               </>}
               />
 
